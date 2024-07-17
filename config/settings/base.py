@@ -2,6 +2,7 @@ from pathlib import Path
 import os
 from datetime import timedelta
 from decouple import config
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,8 +82,16 @@ DATABASES = {
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOSTNAME'),
         'PORT': config('DB_PORT', cast=int),
-    }
+    },
+    'test': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'test_db.sqlite3',
+    },
 }
+
+# Use test database for running tests
+if 'test' in sys.argv:
+    DATABASES['default'] = DATABASES['test']
 
 
 
