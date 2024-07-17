@@ -1,7 +1,7 @@
 from .base import *
 
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 MEDIA_URL = '/media/'
