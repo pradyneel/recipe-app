@@ -15,7 +15,7 @@ app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
     'send-daily-likes-summary': {
-        'task': 'your_app_name.tasks.send_daily_likes_summary',
+        'task': 'users.tasks.send_daily_likes_summary',
         'schedule': crontab(hour=0, minute=0),  # Executes every day at midnight
     },
 }
