@@ -5,7 +5,7 @@ from config.celery import app
 
 logger = get_task_logger(__name__)
 
-# @app.task
+@app.task
 def send_signup_email_task(subject, message, recipient_list):
     """
     Celery task to send an email using Django's send_mail function.
