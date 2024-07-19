@@ -18,3 +18,5 @@ curl --location 'http://localhost:8000/api/user/register/' \
 }
 '
 ```
+
+![PYJAMAHR](https://github.com/user-attachments/assets/53f57e59-cc5c-4e77-9442-8ac53a4e055c)
