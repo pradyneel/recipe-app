@@ -10,7 +10,6 @@ from recipe.models import Recipe
 from .models import Profile
 from recipe.serializers import RecipeSerializer
 from . import serializers
-from .tasks import send_signup_email_task
 
 User = get_user_model()
 
@@ -29,7 +28,6 @@ class UserRegisterationAPIView(GenericAPIView):
         subject = 'Hello from Celery!'
         message = 'This is a test email sent asynchronously.'
         recipient_list = ['pradyneel@gmail.com']
-        result = send_signup_email_task(subject, message, recipient_list)
 
         token = RefreshToken.for_user(user)
         data = serializer.data
